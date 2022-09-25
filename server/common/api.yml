@@ -1,0 +1,637 @@
+openapi: 3.0.1
+info:
+  title: IndieFoods
+  description: Backend for IndieFoods
+  version: 1.0.0
+servers:
+  - url: /api/v1
+tags:
+  - name: Auth
+    description: Authentication endpoints
+  - name: User
+    description: User endpoints
+  - name: Chef
+    description: Chef endpoints
+  - name: Menu Items
+    description: Menu Items endpoints
+  - name: Order
+    description: Order endpoints
+paths:
+  /auth/getUserDetails:
+    get:
+      tags:
+        - Auth
+      security:
+        - Bearer: []
+      summary: Get user details
+      description: Get user details
+      responses:
+        200:
+          description: Success
+  /auth/signupUser:
+    post:
+      tags:
+        - Auth
+      security:
+        - Bearer: []
+      summary: Signup a new user
+      description: Signup a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignupUser'
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignupUserResponse'
+  /auth/signupChef:
+    post:
+      tags:
+        - Auth
+      security:
+        - Bearer: []
+      summary: Signup a new chef
+      description: Signup a new chef
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignupChef'
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignupChefResponse'
+
+  /user/updateAddress:
+    put:
+      tags:
+        - User
+      security:
+        - Bearer: []
+      summary: Update user addresses
+      description: Update user addresses
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddAddress'
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddAddressResponse'
+  /chef:
+    get:
+      tags:
+        - Chef
+      summary: Get all chefs details
+      description: Get all chefs details
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetAllChefsResponse'
+  /chef/menuItems:
+    post:
+      tags:
+        - Chef
+      security:
+        - Bearer: []
+      summary: Add menu items
+      description: Add menu items
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MenuItems'
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+    put:
+      tags:
+        - Chef
+      security:
+        - Bearer: []
+      summary: Update menu items
+      description: Update menu items
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateMenuItems'
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+  /chef/updateProfilePicture:
+    put:
+      tags:
+        - Chef
+      security:
+        - Bearer: []
+      summary: Update a chef's profile picture
+      description: Update a chef's profile picture
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateProfilePicture'
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+  /chef/updateProfileData:
+    put:
+      tags:
+        - Chef
+      security:
+        - Bearer: []
+      summary: Update a chef's profile data
+      description: Update a chef's profile data
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateProfileData'
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+  /menuItems:
+    get:
+      tags:
+        - Menu Items
+      summary: Get all menu items
+      description: Get all menu items
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AllMenuItems'
+  /menuItems/{chefId}:
+    get:
+      tags:
+        - Menu Items
+      summary: Get all menu items from a chef
+      description: Get all menu items from a chef
+      parameters:
+        - name: chefId
+          in: path
+          description: The id of chef whose menu is to be retrieved
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChefMenuItems'
+  /order/getPaidOrdersOfAChef:
+    get:
+      tags:
+        - Order
+      security:
+        - Bearer: []
+      summary: Get all paid orders of a chef
+      description: Get all paid orders of a chef
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetOrdersResponse'
+  /order/getOrdersOfAUser:
+    get:
+      tags:
+        - Order
+      security:
+        - Bearer: []
+      summary: Get all orders of a user
+      description: Get all orders of a user
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetOrdersResponse'
+  /order/initializeOrder:
+    post:
+      tags:
+        - Order
+      security:
+        - Bearer: []
+      summary: Initialize an order
+      description: Initialize an order
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/InitializeOrder'
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InitializeOrderResponse'
+  /order/verifyOrder:
+    post:
+      tags:
+        - Order
+      security:
+        - Bearer: []
+      summary: Verify an order
+      description: Verify an order
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VerifyOrder'
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VerifyOrderResponse'
+
+components:
+  securitySchemes:
+    Bearer:
+      type: http
+      scheme: bearer
+      description: Provide a valid JWT token
+  schemas:
+    SignupUser:
+      type: object
+      required:
+        - name
+        - phone
+        - address
+      properties:
+        name:
+          type: string
+        phone:
+          type: string
+        address:
+          type: array
+          items:
+            type: object
+            properties:
+              address:
+                type: string
+              pincode:
+                type: string
+        email:
+          type: string
+    SignupUserResponse:
+      type: object
+      properties:
+        message:
+          type: string
+    SignupChef:
+      type: object
+      required:
+        - name
+        - phone
+        - address
+        - fssaiId
+        - foodTypes
+      properties:
+        name:
+          type: string
+        phone:
+          type: string
+        address:
+          type: array
+          items:
+            type: object
+            properties:
+              address:
+                type: string
+              pincode:
+                type: string
+        fssaiId:
+          type: string
+        foodTypes:
+          type: array
+          items:
+            type: string
+        email:
+          type: string
+    SignupChefResponse:
+      type: object
+      properties:
+        message:
+          type: string
+    AddAddress:
+      type: object
+      required:
+        - address
+      properties:
+        address:
+          type: array
+          items:
+            type: object
+            properties:
+              address:
+                type: string
+              pincode:
+                type: string
+    AddAddressResponse:
+      type: object
+      properties:
+        message:
+          type: string
+    SuccessResponse:
+      type: object
+      properties:
+        message:
+          type: string
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        phone:
+          type: string
+        address:
+          type: array
+          items:
+            type: object
+            properties:
+              address:
+                type: string
+              pincode:
+                type: string
+        email:
+          type: string
+    MenuItems:
+      type: object
+      required:
+        - menuItems
+      properties:
+        menuItems:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              image:
+                type: string
+              isVeg:
+                type: boolean
+              type:
+                type: string
+    AllMenuItems:
+      type: object
+      required:
+        - menuItems
+      properties:
+        menuItems:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              chefId:
+                type: string
+              name:
+                type: string
+              image:
+                type: string
+              isVeg:
+                type: boolean
+              type:
+                type: string
+    ChefMenuItems:
+      type: object
+      required:
+        - menuItems
+      properties:
+        menuItems:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+              image:
+                type: string
+              isVeg:
+                type: boolean
+              type:
+                type: string
+    UpdateMenuItems:
+      type: object
+      required:
+        - menuItems
+      properties:
+        menuItems:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              name:
+                type: string
+              image:
+                type: string
+              isVeg:
+                type: boolean
+              type:
+                type: string
+    UpdateProfilePicture:
+      type: object
+      required:
+        - imageUrl
+      properties:
+        imageUrl:
+          type: string
+    UpdateProfileData:
+      type: object
+      required:
+        - address
+        - foodTypes
+        - pricing
+      properties:
+        address:
+          type: array
+          items:
+            type: object
+            properties:
+              address:
+                type: string
+              pincode:
+                type: string
+        foodTypes:
+          type: array
+          items:
+            type: string
+        pricing:
+          type: object
+          properties:
+            breakfast:
+              type: string
+            lunch:
+              type: string
+            dinner:
+              type: string
+            snacks:
+              type: string
+    GetAllChefsResponse:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        profilePicture:
+          type: string
+        pricing:
+          type: object
+          properties:
+            breakfast:
+              type: string
+            lunch:
+              type: string
+            dinner:
+              type: string
+            snacks:
+              type: string
+        foodTypes:
+          type: array
+          items:
+            type: string
+    InitializeOrder:
+      type: object
+      required:
+        - chefId
+        - type
+        - address
+        - numberOfPeople
+        - numberOfWeeks
+        - weeklySubscriptionAmount
+      properties:
+        chefId:
+          type: string
+        type:
+          type: string
+        address:
+          type: string
+        numberOfPeople:
+          type: integer
+        numberOfWeeks:
+          type: integer
+        weeklySubscriptionAmount:
+          type: integer
+    InitializeOrderResponse:
+      type: object
+      required:
+        - subscriptionId
+        - planId
+        - orderId
+      properties:
+        subscriptionId:
+          type: string
+        planId:
+          type: string
+        orderId:
+          type: string
+    VerifyOrder:
+      type: object
+      required:
+        - razorpay_payment_id
+        - razorpay_signature
+        - orderId
+      properties:
+        razorpay_payment_id:
+          type: string
+        razorpay_signature:
+          type: string
+        orderId:
+          type: string
+    VerifyOrderResponse:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          type: string
+    GetOrdersResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: string
+          chefName:
+            type: string
+          userName:
+            type: string
+          totalAmount:
+            type: integer
+          weeklySubscriptionAmount:
+            type: integer
+          numberOfWeeks:
+            type: integer
+          numberOfPeople:
+            type: integer
+          userAddress:
+            type: string
+          chefAddress:
+            type: string
+          chefProfilePicture:
+            type: string
+          type:
+            type: string
+          isVeg:
+            type: boolean
+          startDate:
+            type: string
