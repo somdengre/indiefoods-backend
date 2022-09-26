@@ -21,6 +21,7 @@
     "express-openapi-validator": "^4.10.6",
     "firebase-admin": "^10.0.0",
     "hellosign-sdk": "^2.1.0",
+    "heroku": "^7.63.4",
     "pino": "^6.10.0",
     "razorpay": "^2.8.0"
   },
@@ -44,6 +45,10 @@
     "pino-pretty": "^4.3.0",
     "prettier": "^2.2.1",
     "supertest": "^6.0.1"
+  },
+  "engines": {
+    "node": "16.16.0",
+    "npm": "8.11.0"
   },
   "author": "Carmine DiMascio <cdimascio@gmail.com> (https://github.com/cdimascio)"
 }
