@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "indiefoods-test",
+  "private_key_id": "28dbf97600bafccaf731a709f8fee3fece18aeba",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC47r7gD2BE+LyV\n3UA8+KbJZPWD51EaA8XyAME1TqcVRO9Rb/u18O92F9xWO2CezqaEZ+loYTfPgcfE\nwugyNV6FGT5olMWBViBYtfss/Zrdn7xZuTx4jmfzQu2pSesuUX3zLu5C48XsTDYo\nLyzxkXTdUM+5ridBA9IBZ1JYMP2cZb1YcSi8wj6BZaIYUJeJAAtoyylD07GxDS1F\nY4FfdFrQLna1r8XXXIuwJI91GGfhVUnIBjT2qBpUgeblQF2JeGYlg3NBRGHx+PtY\nEAr/xAFNP301PBg+/WLZ1/YdypXenQPntpTKhU2MtTmoUO71Mst/coDodlU2g0t/\nt+tD6qjvAgMBAAECggEAE4cftWM07t42c7ttlBf27LSczvU3ICsef4PK4x56EDSQ\n8iWEC930O0vLuCNZpuClaWfbmBUOoqUj+3KlYt/gf5Ip1TtDG87aEuQB25SwAg+4\nVjUe3eVpCUvw8qZb5Nk1a99xyLMVQZ15PocKFObKKLCRhBw6sufSCNSTN718mkNf\nO06wl609RDWfUWygDoKm3rfnvhSihwu4kVkuwwSCDdqBYNOFaNWca7xTN1ZUlOU+\nN/sFXSMygHdLZySKYh/IEQnSZXRjnOqPOft/RpzkZC1rWP8RGX+4Sxj03sNi+dXM\nf/KvQ2qXq2uPOPjMrUvw81SDGF0NTrZnQIC+AkkWeQKBgQDtBxEhAtV6eILoo3qb\nhNVUA4lvFnMYdpLHiJgnxIyQzVJm2Mo+b3wb5xWyp0EIz7KRei4mfzj+G59aPPXQ\nBa+bj/OacDvzKwfa0nMNlJ3s4sbuC+7ouzi8pR7oGbtlmMkrdS4ND+nFmYz79Pap\nWCXbro7dmzmCllHTULErs/ajEwKBgQDHvDMpfJ9OQkPY2VJfSWDPVzITIdvVuQ6a\neUrYt04+QLC16N+gRrTAYQty256HgW7p+gXHXHhu7/r7TES5u6+ncrTyVMI0zHWw\nuRrHgREUiWEDOm0OpP554iipgWR9jdkJZdNlIyQkFQV+YXZ/cQG046oMsqDf86WE\nHG6EjvBCNQKBgEYjfjUXgpZQDOTMY16bywimV0fRC9PkWoDC8ctqxPGgYE7gvdAF\n62LSWcBY78yssTmNPxTTNsky4U+xlEevNwzAZyR/K65EQHnHJpaRML5FSPpt+49Q\nv3RLJD8oRiTFNlouvabN265GRsrT7R2lYOaF2+7FnRoAY0w1p4e4JDaTAoGBAJ8p\nWZu1szypkWc7xmgoEP0ofr7APG4TCZAPF5WafL8ezbIn4AvYTDEBJB5i4/EXM0s/\n8VrsVQwSL+4Q2LMo3NCSl56D7D4mr6Ij3zMbpoC2+JeZ9020LRTzI3PvqCRk5I6Y\nldwCJMqb9cS/5a2oX7PFt7xmm8vaXArqnScEwHABAoGBAKYfdtyHlyJi4NGiPeNB\nY+7/ZZBpAUjkWg0j6bJbzqJIPVkpINWp64vUJAEFi6SShulAtqM429YD+9neBBnt\nPMrtunRDpf0hW6XZk4YW7s+ZtGYdYvbxoF34FKghcrMFl9jlUYzPSm+/Oqp3P7+D\nQkT9L5A6wX8WAIkPi/TQzDTh\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-7bke4@indiefoods-test.iam.gserviceaccount.com",
+  "client_id": "110554114616092294220",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-7bke4%40indiefoods-test.iam.gserviceaccount.com"
+}
