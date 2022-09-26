@@ -36,6 +36,18 @@ class ChefService {
     }
   }
 
+  async setSignedContractSuccess(uid) {
+    try {
+      await this.chefCollectionRef.doc(uid).update({
+        hasSigned: true,
+      });
+      return { message: 'Contract signed successfully' };
+    } catch (error) {
+      l.error('[CHEF: SET SIGNED CONTRACT SUCCESS]', error);
+      throw error;
+    }
+  }
+
   async updateProfileData(uid, pricing, address, foodTypes) {
     try {
       await this.chefCollectionRef.doc(uid).update({
