@@ -167,6 +167,29 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SuccessResponse'
+
+
+  /chef/setSignedContractSuccess:
+    put:
+      tags:
+        - Chef
+      security:
+        - Bearer: []
+      summary: Set signed contract success
+      description: Set signed contract success
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SetSignedContractSuccess'
+      responses:
+        200:
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
   /chef/updateProfileData:
     put:
       tags:
@@ -494,6 +517,13 @@ components:
       properties:
         imageUrl:
           type: string
+
+    SetSignedContractSuccess:
+      type: object
+      properties:
+        message:
+          type: string
+          
     UpdateProfileData:
       type: object
       required:
