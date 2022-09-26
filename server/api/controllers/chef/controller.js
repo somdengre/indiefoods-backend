@@ -27,6 +27,15 @@ export class Controller {
     }
   }
 
+  async setSignedContractSuccess(req, res, next) {
+    try {
+      const response = await ChefService.setSignedContractSuccess(req.user.uid);
+      res.status(200).json(response);
+    } catch (error) {
+      next(error);
+    }
+  }
+
   async updateProfileData(req, res, next) {
     try {
       const { pricing, address, foodTypes } = req.body;
